@@ -1,0 +1,69 @@
+{% extends "admin.html" %}
+{% block title %}Hello-Books | Admin Add New Book{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <div class="block-header">
+            <h2 class="mt-5">Add New Book</h2>
+        </div>
+
+        <hr>
+        <br>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <!--<li  class="text-success">{{ message }}</li>-->
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <div class="card">
+            <div class="card-body">
+                <form action="{{ url_for('storeBook') }}" method="post">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title" placeholder="Book Title">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="description" rows="3" placeholder="Book Description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">ISBN</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="isbn" placeholder="Book ISBN">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Author</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="author" placeholder="Book Author">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info mb-2"><i class="icon-plus"></i> Add</button>
+                </form>
+
+            </div>
+
+        </div>
+
+</div>
+
+
+{% endblock %}

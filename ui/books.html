@@ -1,0 +1,90 @@
+{% extends "admin.html" %}
+{% block title %}Hello-Books | Admin Books{% endblock %}
+{% block body %}
+
+    <div class="container">
+
+        <div class="block-header">
+        <div class='btn-toolbar float-right'>
+            <a href="{{ url_for('addbook') }}" class="btn btn-warning"><i class="icon-plus"></i> Add Book</a>
+        </div>
+
+        <h2 class="mt-5">Books</h2>
+    </div>
+        <hr>
+        <br>
+
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <!--<li  class="text-success">{{ message }}</li>-->
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% for book in books %}
+        <div class="card">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-md-3">
+                      <div class="book"><img class="" src="{{ url_for('static', filename='images/books/book.png') }}" alt="Card image"></div>
+                  </div>
+                  <div class="col-md-9">
+                      <h5 class="card-title">{{ book.title }}</h5>
+                      <span class="author">by {{ book.author }}</span>
+                      <p class="card-text">{{ book.description }}</p>
+                      <a href="{{ url_for('editbook') }}" class="btn btn-success"><i class="icon-edit"></i> Edit</a>
+                      <a href="{{ url_for('deleteBook') }}" class="btn btn-danger"><i class="icon-trash"></i> Delete</a>
+                  </div>
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="card">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-md-3">
+                      <div class="book"><img class="" src="{{ url_for('static', filename='images/books/book.png') }}" alt="Card image"></div>
+                  </div>
+                  <div class="col-md-9">
+                      <h5 class="card-title">Book Title</h5>
+                      <span class="author">by Author Name</span>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="{{ url_for('editbook') }}" class="btn btn-success"><i class="icon-edit"></i> Edit</a>
+                      <a href="{{ url_for('deleteBook') }}" class="btn btn-danger"><i class="icon-trash"></i> Delete</a>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+
+        <!--<div class="card">-->
+          <!--<div class="card-body">-->
+              <!--<div class="row">-->
+                  <!--<div class="col-md-3">-->
+                      <!--<div class="book"><img class="" src="static/images/books/book.png" alt="Card image"></div>-->
+                  <!--</div>-->
+                  <!--<div class="col-md-9">-->
+                      <!--<h5 class="card-title">Book Title</h5>-->
+                      <!--<span class="author">by Author Name</span>-->
+                      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+                      <!--<a href="/book" class="btn btn-warning">Details</a>-->
+                  <!--</div>-->
+              <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "admin.html" %}
+{% block title %}Hello-Books | Admin Authors{% endblock %}
+{% block body %}
+
+    <div class="container">
+
+        <div class="block-header">
+        <div class='btn-toolbar float-right'>
+            <a href="{{ url_for('addAuthor') }}" class="btn btn-warning"><i class="icon-plus"></i> Add Author</a>
+        </div>
+
+        <h2 class="mt-5">Authors</h2>
+    </div>
+        <hr>
+        <br>
+
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <!--<li  class="text-success">{{ message }}</li>-->
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+
+        <div class="card">
+          <div class="card-body">
+              <table class="table table-striped table-hover " id="history">
+                  <thead class="thead-custom">
+                  <tr>
+                      <th>Name</th>
+                  </tr>
+
+                  </thead>
+                  <tbody>
+                  {% for author in authors %}
+                  <tr>
+                      <td>{{ author.name }}</td>
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+        </div>
+    </div>
+
+{% endblock %}
