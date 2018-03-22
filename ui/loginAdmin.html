@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="author" content="Kodinger">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
+
 	<title>Hello-Books | Admin Login</title>
-	<!--<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">-->
-	<!--<link rel="stylesheet" type="text/css" href="css/my-login.css">-->
+
 	<link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/custom.css" rel="stylesheet">
 
@@ -25,23 +25,7 @@
 							<h4 class="card-title text-center">Admin Login</h4>
                             <hr>
 
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <!--<li  class="text-danger">{{ message }}</li>-->
-			<div class="alert alert-danger">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                {{ message }}
-            </div>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-
-							<form  form action="{{ url_for('login') }}" method="POST">
+							<form  form action="#" method="GET">
 
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
@@ -50,12 +34,7 @@
 								</div>
 
 								<div class="form-group">
-									<label for="password">Password
-										<a href="forgot.html" class="float-right">
-											Forgot Password?
-										</a>
-									</label>
-									<!--<input id="password" type="password" class="form-control" name="password" required data-eye>-->
+									<label for="password">Password</label>
 									<input id="password" type="password" class="form-control" name="password" required>
 								</div>
 
@@ -71,7 +50,7 @@
 									</button>
 								</div>
 								<div class="margin-top20 text-center">
-									Don't have an account? <a href="register">Register</a>
+									Don't have an account? <a href="registerAdmin.html">Register</a>
 								</div>
 							</form>
 						</div>
