@@ -26,3 +26,6 @@ The template is broken down to 4 sections:
 https://brian-mecha.github.io/
 ## Project Owner
 Brian Mecha
+## Home Page
+
+![alt text](https://brian-mecha.github.io/ui/static/images/home.png)
